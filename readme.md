@@ -49,17 +49,17 @@ It has functions to show all books, and add, issue or return them, upon logging 
   - stack_book.png
   - show_book.png
 
--/popups:
-    - blank_error.py (64)
-    - connect_error.py (62)
-    - added_info.py (62)
-    - exists_error.py (64)
-    - issued_info.py (62)
-    - issued_book.py (55)
-    - mail_error.py (64)
-    - match_error.py (64)
-    - read_error.py (64)
-    - returned_info.py (62)
+- /popups:
+  - blank_error.py (64)
+  - connect_error.py (62)
+  - added_info.py (62)
+  - exists_error.py (64)
+  - issued_info.py (62)
+  - issued_book.py (55)
+  - mail_error.py (64)
+  - match_error.py (64)
+  - read_error.py (64)
+  - returned_info.py (62)
 
 - credentials.txt
 
