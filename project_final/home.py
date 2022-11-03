@@ -55,6 +55,8 @@ sqlcursor.execute(
     '''
 )
 
+sqlcursor.execute("nsert into available_books select * from all_books")
+
 sqldatabase.commit()
 
 
