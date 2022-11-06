@@ -20,7 +20,6 @@ It has functions to show all books, and add, issue or return them, upon logging 
   - Montserrat
   - Lato
   - Poiret One
-  - Lato
  
 - python modules:
   - tkinter
