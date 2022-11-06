@@ -64,13 +64,13 @@ It has functions to show all books, and add, issue or return them, upon logging 
 - credentials.txt
 
 - login.py (176)
-- home.py (317)
+- home.py (391)
 - add_page.py (186)
 - issue_page.py (300)
 - return_book.py (282)
 - show_page.py (223)
 
-### Total lines of code: 2107. (omg)
+### Total lines of code: 2181. (omg)
 
 
 **Credit Flaticon for the images used, and myself for the code.**
