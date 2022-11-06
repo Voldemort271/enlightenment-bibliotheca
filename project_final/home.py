@@ -36,7 +36,7 @@ sqlcursor.execute(
 sqlcursor.execute(
     '''
     create table if not exists available_books (
-        id int references all_books(id),
+        id int unique references all_books(id),
         name text,
         author text
     ) engine=InnoDB
@@ -55,7 +55,80 @@ sqlcursor.execute(
     '''
 )
 
-sqlcursor.execute("insert into available_books select * from all_books")
+bookList = [
+    (1, 'A Better India: A Better World', 'Narayana Murthy'),
+    (2, "The Pilgrim's Progress", 'John Bunyan'),
+    (3, 'Robinson Crusoe', 'Daniel Defoe'),
+    (4, "Gulliver's Travels", 'Jonathan Swift'),
+    (5, 'Clarissa', 'Samuel Richardson'),
+    (6, 'Tom Jones ', 'Henry Fielding'),
+    (7, 'The Life and Opinions of Tristram Shandy, Gentleman', 'Laurence Sterne'),
+    (8, 'Emma', 'Jane Austen'),
+    (9, 'Frankenstein ', 'Mary Shelley'),
+    (10, 'Nightmare Abbey', 'Thomas Love Peacock'),
+    (11, 'The Narrative of Arthur Gordon Pym of Nantucket', 'Edgar Allan Poe'),
+    (12, 'Sybil', 'Benjamin Disraeli'),
+    (13, 'Jane Eyre', 'Charlotte Brontë'),
+    (14, 'Wuthering Heights', 'Emily Brontë'),
+    (15, 'Vanity Fair', 'William Thackeray'),
+    (16, 'David Copperfield', 'Charles Dickens'),
+    (17, 'The Scarlet Letter ', 'Nathaniel Hawthorne'),
+    (18, 'Moby-Dick', 'Herman Melville'),
+    (19, "Alice's Adventures in Wonderland", 'Lewis Carroll'),
+    (20, 'The Moonstone', 'Wilkie Collins'),
+    (21, 'Little Women', 'Louisa May Alcott'),
+    (22, 'Middlemarch', 'George Eliot'),
+    (23, 'The Way We Live Now', 'Anthony Trollope'),
+    (24, 'The Adventures of Huckleberry Finn', 'Mark Twain'),
+    (25, 'Kidnapped', 'Robert Louis Stevenson'),
+    (26, 'Three Men in a Boa', 'Jerome K Jerome'),
+    (27, 'The Sign of Four', 'Arthur Conan Doyle'),
+    (28, 'The Picture of Dorian Gray', 'Oscar Wilde'),
+    (29, 'New Grub Street', 'George Gissing'),
+    (30, 'Jude the Obscure', 'Thomas Hardy'),
+    (31, 'The Red Badge of Courage', 'Stephen Crane'),
+    (32, 'Dracula', 'Bram Stoker'),
+    (33, 'Heart of Darkness', 'Joseph Conrad'),
+    (34, 'Sister Carrie', 'Theodore Dreiser'),
+    (35, 'Kim', 'Rudyard Kipling'),
+    (36, 'The Golden Bowl', 'Henry James'),
+    (37, 'Hadrian the Seventh', 'Frederick Rolfe'),
+    (38, 'The Wind in the Willows', 'Kenneth Grahame'),
+    (39, 'The History of Mr Polly', 'HG Wells'),
+    (40, 'Zuleika Dobson', 'Max Beerbohm'),
+    (41, 'The Good Soldier', 'Ford Madox Ford'),
+    (42, 'The Thirty-Nine Steps', 'John Buchan'),
+    (43, 'The Rainbow', 'DH Lawrence'),
+    (44, 'Of Human Bondage', 'W Somerset Maugham'),
+    (45, 'The Age of Innocence', 'The Age of Innocence'),
+    (46, 'Ulysses', 'James Joyce'),
+    (47, 'Babbitt', 'Sinclair Lewis'),
+    (48, 'A Passage to India', 'EM Forster'),
+    (49, 'Gentlemen Prefer Blondes', 'Anita Loos'),
+    (50, 'Mrs Dalloway', 'Virginia Woolf'),
+    (51, 'The Great Gatsby', 'F Scott Fitzgerald'),
+    (52, 'Lolly Willowes', 'Sylvia Townsend Warner'),
+    (53, 'The Sun Also Rises', 'Ernest Hemingway'),
+    (54, 'The Maltese Falcon', 'Dashiell Hammett'),
+    (55, 'As I Lay Dying', 'William Faulkner'),
+    (56, 'Brave New World', 'Aldous Huxley'),
+    (57, 'Cold Comfort Farm', 'Stella Gibbons'),
+    (58, 'Nineteen Nineteen', 'John Dos Passos'),
+    (59, 'Tropic of Cancer', 'Henry Miller'),
+    (60, 'Scoop', 'Evelyn Waugh'),
+    (61, 'Murphy', 'Samuel Beckett'),
+    (62, 'The Big Sleep', 'Raymond Chandler'),
+    (63, 'Party Going', 'Henry Green'),
+    (64, 'At Swim-Two-Birds', 'Flann O Brien'),
+    (65, 'The Grapes of Wrath', 'John Steinbeck'),
+    (66, 'Joy in the Morning', 'PG Wodehouse'),
+    (67, "All the King's Men", 'Robert Penn Warren'),
+    (68, 'Under the Volcano', 'Malcolm Lowry'),
+]
+
+for i in bookList:
+    sqlcursor.execute(f"insert ignore into all_books values {i}")
+    sqlcursor.execute(f"insert ignore into available_books values {i}")
 
 sqldatabase.commit()
 
@@ -212,7 +285,7 @@ addButton.grid(
 )
 
 
-def openIssue(): 
+def openIssue():
     subprocess.call('python issue_page.py')
 
 
